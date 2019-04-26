@@ -70,5 +70,20 @@ namespace Firebase_Youtube
             //something
             //something else
         }
+
+        private async void button3_Click(object sender, EventArgs e)
+        {
+            var data = new Data
+            {
+                Id=textBox1.Text,
+                Name=textBox2.Text,
+                Address=textBox3.Text,
+                Age=textBox4.Text
+            };
+
+            FirebaseResponse response = await client.UpdateTaskAsync("Information/"+textBox1.Text,data);
+            Data result = response.ResultAs<Data>();
+            MessageBox.Show("Data Updated at ID: "+ result.Id);
+        }
     }
 }
