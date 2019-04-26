@@ -85,5 +85,17 @@ namespace Firebase_Youtube
             Data result = response.ResultAs<Data>();
             MessageBox.Show("Data Updated at ID: "+ result.Id);
         }
+
+        private async void button4_Click(object sender, EventArgs e)
+        {
+            FirebaseResponse response = await client.DeleteTaskAsync("Information/"+textBox1.Text);
+            MessageBox.Show("Deleted Record of ID: "+textBox1.Text);
+        }
+
+        private async void button5_Click(object sender, EventArgs e)
+        {
+            FirebaseResponse response = await client.DeleteTaskAsync("Information");
+            MessageBox.Show("All information inside table 'Information' has been deleted");
+        }
     }
 }
